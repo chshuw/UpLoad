@@ -25,8 +25,6 @@ public class GlideImageLoader implements ImageLoader {
 
     @Override
     public void clearMemoryCache() {
-
+        //这里是清除缓存的方法,根据需要自己实现
     }
-
-
 }

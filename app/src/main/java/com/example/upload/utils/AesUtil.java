@@ -24,7 +24,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 
 /**
- * 加密类
+ * Aes加密类
  */
 public class AesUtil {
 
@@ -101,23 +101,19 @@ public class AesUtil {
             }
             cipherInputStream.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace(); // To change body of catch statement use File |
-            // Settings | File Templates.
+            e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace(); // To change body of catch statement use File |
-            // Settings | File Templates.
+            e.printStackTrace();
         } finally {
             try {
                 inputStream.close();
             } catch (IOException e) {
-                e.printStackTrace(); // To change body of catch statement use
-                // File | Settings | File Templates.
+                e.printStackTrace();
             }
             try {
                 outputStream.close();
             } catch (IOException e) {
-                e.printStackTrace(); // To change body of catch statement use
-                // File | Settings | File Templates.
+                e.printStackTrace();
             }
         }
         return encrypfile;
@@ -148,20 +144,17 @@ public class AesUtil {
             }
             cipherOutputStream.close();
         } catch (IOException e) {
-            e.printStackTrace(); // To change body of catch statement use File |
-            // Settings | File Templates.
+            e.printStackTrace();
         } finally {
             try {
                 inputStream.close();
             } catch (IOException e) {
-                e.printStackTrace(); // To change body of catch statement use
-                // File | Settings | File Templates.
+                e.printStackTrace();
             }
             try {
                 outputStream.close();
             } catch (IOException e) {
-                e.printStackTrace(); // To change body of catch statement use
-                // File | Settings | File Templates.
+                e.printStackTrace();
             }
         }
         return decryptFile;
@@ -188,14 +181,12 @@ public class AesUtil {
             // 初始化
             cipher.init(cipherMode, key);
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace(); // To change body of catch statement use File |
-            // Settings | File Templates.
+            e.printStackTrace();
         } catch (NoSuchPaddingException e) {
-            e.printStackTrace(); // To change body of catch statement use File |
-            // Settings | File Templates.
+            e.printStackTrace();
         } catch (InvalidKeyException e) {
-            e.printStackTrace(); // To change body of catch statement use File |
-            // Settings | File Templates.
+            e.printStackTrace();
+
         }
         return cipher;
     }

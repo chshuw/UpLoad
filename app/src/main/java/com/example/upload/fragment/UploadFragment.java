@@ -40,10 +40,9 @@ import okhttp3.Response;
 
 public class UploadFragment extends Fragment implements View.OnClickListener {
 
-    public static final String SERVER = "http://10.102.0.158:8080/FileUpload/";
     private GridView gridView;
     private ImagePicker imagePicker;
-    private ArrayList<ImageItem> images;
+    private ArrayList<ImageItem> images;  //当前选择的所有图片
     public static final String key = "00b09e37363e596e1f25b23c78e49939238b";
 
     @Nullable
@@ -74,11 +73,18 @@ public class UploadFragment extends Fragment implements View.OnClickListener {
                             new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
                 } else {
                     //权限已经被授予，在这里直接写要执行的相应方法即可
-                    imagePicker = ImagePicker.getInstance();
+                    imagePicker = ImagePicker.getInstance();  //设置图片加载器
                     imagePicker.setImageLoader(new GlideImageLoader());
-                    imagePicker.setShowCamera(true);
-                    imagePicker.setSelectLimit(9);
-                    imagePicker.setCrop(false);
+                    imagePicker.setShowCamera(true);  //显示拍照按钮
+                    imagePicker.setSelectLimit(9); //选中数量限制
+                    imagePicker.setCrop(false); //不允许裁剪（单选才有效）
+//                    imagePicker.setSaveRectangle(true); //是否按矩形区域保存
+//                    imagePicker.setStyle(CropImageView.Style.RECTANGLE);  //裁剪框的形状
+//                    imagePicker.setFocusWidth(800);   //裁剪框的宽度。单位像素（圆形自动取宽高最小值）
+//                    imagePicker.setFocusHeight(800);  //裁剪框的高度。单位像素（圆形自动取宽高最小值）
+//                    imagePicker.setOutPutX(1000);//保存文件的宽度。单位像素
+//                    imagePicker.setOutPutY(1000);//保存文件的高度。单位像素
+
                     Intent intent = new Intent(getContext(), ImageGridActivity.class);
                     startActivityForResult(intent, 100);
 
